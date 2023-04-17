@@ -1,38 +1,29 @@
 import readlineSync from 'readline-sync';
-import getRandomInt from './random.js';
+// import { rules, getRound } from './games/even.js'
 
-console.log('Welcome to the Brain Games!');
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${userName}!\nAnswer "yes" if the number is even, otherwise answer "no".`);
+const getEngine = (rules, getRound) => {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
 
-const congratulations = `Congratulations, ${userName}!`;
-const roundCount = 3;
+  console.log(`Hello, ${userName}!\n${rules}`);
+  const congratulations = `Congratulations, ${userName}!`;
 
-const parityСheck = () => {
-  let i = 1;
-  while (i <= roundCount) {
-    const randomNumber = getRandomInt();
+  for (let i = 0; i < 3; i += 1) {
+    const [randomNumber, correctAnsver] = getRound;
+
     console.log(`Question: ${randomNumber}`);
     const userAnsver = readlineSync.question('Your answer: ');
-    if (randomNumber % 2 === 0) {
-      if (userAnsver === 'yes') {
-        console.log('Correct!');
-      } else if (userAnsver === 'no') {
-        console.log(`'${userAnsver}' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, ${userName}!`);
-        break;
-      }
-    } else if (randomNumber % 2 !== 0) {
-      if (userAnsver === 'no') {
-        console.log('Correct!');
-      } else if (userAnsver === 'yes') {
-        console.log(`'${userAnsver}' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${userName}!`);
-        break;
-      }
+
+    if (correctAnsver === userAnsver) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnsver}' is wrong answer ;(. Correct answer was '${correctAnsver}'.\nLet's try again, ${userName}!`);
+      return;
     }
-    i += 1;
     if (i === 4) {
       console.log(congratulations);
     }
   }
 };
-parityСheck();
+
+export default getEngine;

@@ -6,7 +6,7 @@ const getRound = () => {
   const randomNumberSecond = (randomNumberFirst + 19);
   const counter = Math.floor(Math.random() * (4 - 2) + 2);
   let result = '';
-  const misingElement = ' .. ';
+  const misingElement = '..';
 
   let i = randomNumberFirst;
   while (i <= randomNumberSecond) {

@@ -17,6 +17,7 @@ const getEngine = (rules, getRound) => {
       console.log('Correct!');
     } else {
       console.log(`'${userAnsver}' is wrong answer ;(. Correct answer was '${correctAnsver}'.\nLet's try again, ${userName}!`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
   }

@@ -6,17 +6,18 @@ const getRound = () => {
   const randomNumberSecond = (randomNumberFirst + 19);
   const counter = Math.floor(Math.random() * (4 - 2) + 2);
   let result = '';
-  const element = ' .. ';
+  const misingElement = ' .. ';
 
-  let j = randomNumberFirst;
-  while (j <= randomNumberSecond) {
-    result = `${result} ${j}`;
-    j += counter;
+  let i = randomNumberFirst;
+  while (i <= randomNumberSecond) {
+    result = `${result} ${i}`;
+    i += counter;
   }
-  const resultArr = result.split(' ');
-  const progression = resultArr.slice(0, randomIndex - 1) + element + resultArr.slice(randomIndex);
-  const question = progression.replace(/,/g, ' ');
-  const correctAnsver = resultArr[randomIndex - 1];
+
+  const splitResult = result.split(' ');
+  const correctAnsver = splitResult.at(randomIndex);
+  splitResult[randomIndex] = misingElement;
+  const question = splitResult.join(' ').trim();
 
   return [question, correctAnsver];
 };

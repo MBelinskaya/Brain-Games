@@ -24,7 +24,7 @@ They are structured along the lines of popular abundant brain-pumping apps
 1. Install [node.js](https://nodejs.org/en). Use the instructions on the website.
 2. Copy the repository to your computer using git clone:
 ```
-git clone:https://github.com/Mar-Ble/frontend-project-44
+git@github.com:Mar-Ble/frontend-project-44.git
 ```
 3. To start using this project, copy and paste the following commands into the command line.
 ```

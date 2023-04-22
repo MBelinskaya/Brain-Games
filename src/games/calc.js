@@ -1,9 +1,11 @@
+import getRandomInt from '../random.js';
+
 const rules = 'What is the result of the expression?';
 const randomOperation = [' + ', ' - ', ' * '];
 
 const getRound = () => {
-  const randomNumberFirst = Math.floor(Math.random() * (101 - 1)) + 1;
-  const randomNumberSecond = Math.floor(Math.random() * (101 - 1)) + 1;
+  const randomNumberFirst = getRandomInt();
+  const randomNumberSecond = getRandomInt();
   const randomIndex = Math.floor(Math.random() * (3 - 0));
   const question = randomNumberFirst + randomOperation[randomIndex] + randomNumberSecond;
 

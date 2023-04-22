@@ -1,7 +1,9 @@
+import getRandomInt from '../random.js';
+
 const rules = 'What number is missing in the progression?';
 
 const getRound = () => {
-  const randomNumberFirst = Math.floor(Math.random() * (83 - 1)) + 1;
+  const randomNumberFirst = getRandomInt();
   const randomIndex = Math.floor(Math.random() * (9 - 2) + 2);
   const randomNumberSecond = (randomNumberFirst + 19);
   const counter = Math.floor(Math.random() * (4 - 2) + 2);

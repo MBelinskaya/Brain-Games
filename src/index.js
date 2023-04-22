@@ -6,8 +6,9 @@ const getEngine = (rules, getRound) => {
 
   console.log(`Hello, ${userName}!\n${rules}`);
   const congratulations = `Congratulations, ${userName}!`;
+  const roundCount = 3;
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < roundCount; i += 1) {
     const [question, correctAnsver] = getRound();
 
     console.log(`Question: ${question}`);

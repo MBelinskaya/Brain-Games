@@ -33,7 +33,7 @@ npm ci
 ```
 npm link
 ```
-4. Run games: write in the console `game-name`.
+4. Run games: write in the console `*game-name*`.
 ---
 
 ### Demonstration

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { getRound, rules } from '../src/games/prime.js';
-import getEngine from '../src/index.js';
+import runPrime from '../src/games/prime.js';
 
-getEngine(rules, getRound);
+runPrime();

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { getRound, rules } from '../src/games/gcd.js';
-import getEngine from '../src/index.js';
+import runGcd from '../src/games/gcd.js';
 
-getEngine(rules, getRound);
+runGcd();

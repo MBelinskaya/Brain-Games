@@ -1,19 +1,18 @@
-import getRandomInt from '../random.js';
+import { getRandomInt, gcd } from '../utils.js';
+import runEngine from '../index.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
+const minNumber = 1;
+const maxNumber = 100;
 
 const getRound = () => {
-  const randomNumberFirst = getRandomInt();
-  const randomNumberSecond = getRandomInt();
-  let correctAnsver = 0;
-
-  for (let i = 1; i <= randomNumberFirst && i <= randomNumberSecond; i += 1) {
-    if (randomNumberFirst % i === 0 && randomNumberSecond % i === 0) {
-      correctAnsver = i.toString();
-    }
-  }
-  const question = `${randomNumberFirst} ${randomNumberSecond}`;
-  return [question, correctAnsver];
+  const number1 = getRandomInt(minNumber, maxNumber);
+  const number2 = getRandomInt(minNumber, maxNumber);
+  const correctAnswer = gcd(number1, number2);
+  const question = `${number1} ${number2}`;
+  return [question, correctAnswer];
 };
 
-export { rules, getRound };
+const runGcd = () => runEngine(rules, getRound);
+
+export default runGcd;

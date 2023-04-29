@@ -1,27 +1,41 @@
-import getRandomInt from '../random.js';
+import { getRandomInt } from '../utils.js';
+import runEngine from '../index.js';
 
 const rules = 'What number is missing in the progression?';
+const minNumber = 1;
+const maxNumber = 100;
+const minIndexNumber = 1;
+const maxIndexNumber = 9;
+const minCounter = 2;
+const maxCounter = 4;
+const maxLength = 19;
 
 const getRound = () => {
-  const randomNumberFirst = getRandomInt();
-  const randomIndex = Math.floor(Math.random() * (9 - 2) + 2);
-  const randomNumberSecond = (randomNumberFirst + 19);
-  const counter = Math.floor(Math.random() * (4 - 2) + 2);
-  let result = '';
+  const number1 = getRandomInt(minNumber, maxNumber);
+  const number2 = (number1 + maxLength);
+  const randomIndex = getRandomInt(minIndexNumber, maxIndexNumber);
+  const counter = getRandomInt(minCounter, maxCounter);
   const misingElement = '..';
 
-  let i = randomNumberFirst;
-  while (i <= randomNumberSecond) {
-    result = `${result} ${i}`;
-    i += counter;
-  }
+  const getProgression = () => {
+    let result = '';
+    let i = number1;
+    while (i <= number2) {
+      result = `${result} ${i}`;
+      i += counter;
+    }
+    return result;
+  };
+  const progression = getProgression(number1, number2);
+  const splitResult = progression.split(' ');
 
-  const splitResult = result.split(' ');
-  const correctAnsver = splitResult.at(randomIndex);
+  const correctAnswer = splitResult.at(randomIndex);
   splitResult[randomIndex] = misingElement;
   const question = splitResult.join(' ').trim();
 
-  return [question, correctAnsver];
+  return [question, correctAnswer];
 };
 
-export { rules, getRound };
+const runProgression = () => runEngine(rules, getRound);
+
+export default runProgression;

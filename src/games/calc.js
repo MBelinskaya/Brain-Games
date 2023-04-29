@@ -1,29 +1,22 @@
-import getRandomInt from '../random.js';
+import { getRandomInt, calculate } from '../utils.js';
+import runEngine from '../index.js';
 
 const rules = 'What is the result of the expression?';
-const randomOperation = [' + ', ' - ', ' * '];
+const minNumber = 1;
+const maxNumber = 100;
+const minIndexNumber = 0;
+const maxIndexNumber = 3;
 
 const getRound = () => {
-  const randomNumberFirst = getRandomInt();
-  const randomNumberSecond = getRandomInt();
-  const randomIndex = Math.floor(Math.random() * (3 - 0));
-  const question = randomNumberFirst + randomOperation[randomIndex] + randomNumberSecond;
-
-  let correctAnsver = 0;
-  switch (randomOperation[randomIndex]) {
-    case (' + '):
-      correctAnsver = (randomNumberFirst + randomNumberSecond).toString();
-      break;
-    case (' - '):
-      correctAnsver = (randomNumberFirst - randomNumberSecond).toString();
-      break;
-    case (' * '):
-      correctAnsver = (randomNumberFirst * randomNumberSecond).toString();
-      break;
-    default:
-      return question.toString();
-  }
-  return [question, correctAnsver];
+  const number1 = getRandomInt(minNumber, maxNumber);
+  const number2 = getRandomInt(minNumber, maxNumber);
+  const randomIndex = getRandomInt(minIndexNumber, maxIndexNumber);
+  const operators = [' + ', ' - ', ' * '];
+  const correctAnswer = calculate(randomIndex, number1, number2);
+  const question = number1 + operators[randomIndex] + number2;
+  return [question, correctAnswer];
 };
 
-export { rules, getRound };
+const runCalc = () => runEngine(rules, getRound);
+
+export default runCalc;

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { getRound, rules } from '../src/games/calc.js';
-import getEngine from '../src/index.js';
+import runCalc from '../src/games/calc.js';
 
-getEngine(rules, getRound);
+runCalc();

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { getRound, rules } from '../src/games/progression.js';
-import getEngine from '../src/index.js';
+import runProgression from '../src/games/progression.js';
 
-getEngine(rules, getRound);
+runProgression();

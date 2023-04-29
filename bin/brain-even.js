@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { rules, getRound } from '../src/games/even.js';
-import getEngine from '../src/index.js';
+import runEven from '../src/games/even.js';
 
-getEngine(rules, getRound);
+runEven();

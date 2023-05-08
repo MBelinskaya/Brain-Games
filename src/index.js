@@ -5,7 +5,6 @@ const runEngine = (rules, getRound) => {
   const userName = readlineSync.question('May I have your name? ');
 
   console.log(`Hello, ${userName}!\n${rules}`);
-  const congratulations = `Congratulations, ${userName}!`;
   const roundsCount = 3;
 
   for (let i = 0; i < roundsCount; i += 1) {
@@ -21,7 +20,7 @@ const runEngine = (rules, getRound) => {
     }
     console.log('Correct!');
   }
-  console.log(congratulations);
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default runEngine;

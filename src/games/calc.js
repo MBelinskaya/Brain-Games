@@ -1,18 +1,27 @@
-import { getRandomInt, calculate } from '../utils.js';
+import getRandomNumber from '../utils.js';
 import runEngine from '../index.js';
 
 const rules = 'What is the result of the expression?';
-const minNumber = 1;
-const maxNumber = 100;
-const minIndexNumber = 0;
-const maxIndexNumber = 3;
+
+const calculate = (operators, randomIndex, number1, number2) => {
+  switch (operators[randomIndex]) {
+    case (' + '):
+      return (number1 + number2);
+    case (' - '):
+      return (number1 - number2);
+    case (' * '):
+      return (number1 * number2);
+    default:
+      throw new Error(`Unknown operators: '${operators}'!`);
+  }
+};
 
 const getRound = () => {
-  const number1 = getRandomInt(minNumber, maxNumber);
-  const number2 = getRandomInt(minNumber, maxNumber);
-  const randomIndex = getRandomInt(minIndexNumber, maxIndexNumber);
+  const number1 = getRandomNumber(1, 100);
+  const number2 = getRandomNumber(1, 100);
+  const randomIndex = getRandomNumber(0, 3);
   const operators = [' + ', ' - ', ' * '];
-  const correctAnswer = calculate(randomIndex, number1, number2);
+  const correctAnswer = calculate(operators, randomIndex, number1, number2).toString();
   const question = number1 + operators[randomIndex] + number2;
   return [question, correctAnswer];
 };

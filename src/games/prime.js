@@ -17,8 +17,8 @@ const isPrime = (question) => {
 
 const getRound = () => {
   const question = getRandomNumber(1, 100);
-  const correctAnswer = isPrime(question) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return [question, answer];
 };
 
 const runPrime = () => runEngine(rules, getRound);
